@@ -7,6 +7,7 @@ package aft2022t;
 import java.awt.Label;
 import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 /**
  *
@@ -180,7 +181,11 @@ public class Frame extends javax.swing.JFrame {
 
     private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
         System.out.println("Open about");
-       JDialog  dialog = new JDialog (this, "dd");
+       JDialog  dialog = new JDialog (this, "About");
+       
+        dialog.add(new JLabel("Dobókocka \n Verzió: 1.0 \n Készítették:"));
+        
+        dialog.setSize(400, 200);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenu1MenuSelected
 
