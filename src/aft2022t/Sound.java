@@ -14,8 +14,8 @@ import javax.sound.sampled.FloatControl;
  * @author Fábián Levente
  */
 public class Sound {
-    FloatControl gainControl;
-    float decibel=0.0f;
+    private FloatControl gainControl;
+    private float decibel=0.0f;
     
     float getdec(){
         return decibel;
