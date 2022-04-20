@@ -5,6 +5,7 @@
  */
 package aft2022t;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -15,14 +16,17 @@ public class Dobokocka {
 
     private static int KockaOldal = 6;
     private static int KockaDarab = 1;
-    private static ArrayList<Integer> Dobasok = new ArrayList<Integer>();
+
+    // [0] = dobasok, [1] = dátum
+    private static ArrayList<String[]> Dobasok = new ArrayList<>();
+    private static ArrayList<String> JelenlegiDobasok = new ArrayList<>();
     private static int HanyadikDobas;
 
     /**
      *
      * @return hányszor akarunk dobni
      */
-    public static ArrayList<Integer> getDobasok() {
+    public static ArrayList<String[]> getDobasok() {
         return Dobasok;
     }
 
@@ -104,7 +108,7 @@ public class Dobokocka {
     }
 
     /**
-     * 
+     *
      * @return 1től a kockaoldalszámának értéke közötti random értéket
      * @throws InterruptedException
      */
@@ -114,8 +118,26 @@ public class Dobokocka {
         Random rnd = new Random();
         int dobottSzam = rnd.nextInt(max - min + 1) + min;
         Thread.sleep(rnd.nextLong(300 - 100) + 100);
-        Dobokocka.Dobasok.add(dobottSzam);
-        Dobokocka.HanyadikDobas++;
+        JelenlegiDobasok.add(String.valueOf(dobottSzam));
+
+        HanyadikDobas++;
+
+        if (HanyadikDobas == KockaDarab) {
+            String[] tömb = new String[2];
+            tömb[0] = String.join("", JelenlegiDobasok);
+
+            tömb[1] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+            Dobasok.add(tömb);
+            JelenlegiDobasok.clear();
+
+            System.out.println("Eddigi dobások:");
+            for (int i = 0; i < Dobasok.size(); i++) {
+                System.out.println(Arrays.toString(Dobasok.get(i)));
+            }
+
+            HanyadikDobas = 0;
+        }
+
         return dobottSzam;
     }
 }
