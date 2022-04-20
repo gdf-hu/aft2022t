@@ -44,6 +44,7 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListDobások = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
+        jSliderHangerő = new javax.swing.JSlider();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -84,6 +85,13 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel3.setText("Dobások:");
 
+        jSliderHangerő.setValue(100);
+        jSliderHangerő.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderHangerőStateChanged(evt);
+            }
+        });
+
         jMenu1.setText("About");
         jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
@@ -110,9 +118,6 @@ public class Frame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -123,7 +128,12 @@ public class Frame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinnerDobás, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jSpinnerDobás, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGap(239, 239, 239)
@@ -143,9 +153,15 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(jButtonDobás)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(36, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
 
         pack();
@@ -153,6 +169,9 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButtonDobásActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDobásActionPerformed
         System.out.println("Dobás!");
+        
+        Sound.same_sound();
+        
         Label text = new Label();
         text.setText("1");
         try {
@@ -187,6 +206,10 @@ public class Frame extends javax.swing.JFrame {
         dialog.setSize(400, 200);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenu1MenuSelected
+
+    private void jSliderHangerőStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderHangerőStateChanged
+        Sound.setdec((float) jSliderHangerő.getValue());
+    }//GEN-LAST:event_jSliderHangerőStateChanged
 
     /**
      * @param args the command line arguments
@@ -232,6 +255,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSlider jSliderHangerő;
     private javax.swing.JSpinner jSpinnerDobás;
     private javax.swing.JSpinner jSpinnerOldal;
     // End of variables declaration//GEN-END:variables
