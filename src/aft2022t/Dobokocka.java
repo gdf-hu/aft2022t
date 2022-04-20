@@ -16,7 +16,16 @@ public class Dobokocka {
     private static int KockaOldal = 6;
     private static int KockaDarab = 1;
     private static ArrayList<Integer> Dobasok = new ArrayList<Integer>();
-    
+    private static int HanyadikDobas;
+
+    public static ArrayList<Integer> getDobasok() {
+        return Dobasok;
+    }
+
+    public static int getHanyadikDobas() {
+        return HanyadikDobas;
+    }
+
     public static int getKockaOldal() {
         return KockaOldal;
     }
@@ -49,20 +58,21 @@ public class Dobokocka {
         int max = Dobokocka.KockaOldal;
         Random rnd = new Random();
         for (int i = 0; i < Dobokocka.KockaDarab; i++) {
-            Thread.sleep(rnd.nextLong(300-100)+100);
-            lista.add(rnd.nextInt(max - min + 1)+min);
+            Thread.sleep(rnd.nextLong(300 - 100) + 100);
+            lista.add(rnd.nextInt(max - min + 1) + min);
         }
 
         return lista;
     }
-    
-    public static int dob() throws InterruptedException{
+
+    public static int dob() throws InterruptedException {
         int min = 1;
         int max = Dobokocka.KockaOldal;
         Random rnd = new Random();
-        int dobottSzam = rnd.nextInt(max - min + 1)+min; 
-        Thread.sleep(rnd.nextLong(300-100)+100);
+        int dobottSzam = rnd.nextInt(max - min + 1) + min;
+        Thread.sleep(rnd.nextLong(300 - 100) + 100);
         Dobokocka.Dobasok.add(dobottSzam);
+        Dobokocka.HanyadikDobas++;
         return dobottSzam;
     }
 }
