@@ -9,12 +9,5 @@ package aft2022t;
  * @author PC
  */
 public class Aft2022t {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
 }
