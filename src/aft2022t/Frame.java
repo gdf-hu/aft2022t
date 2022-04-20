@@ -86,6 +86,7 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel3.setText("Dobások:");
 
+        jSliderHangerő.setMaximum(50);
         jSliderHangerő.setValue(0);
         jSliderHangerő.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -135,11 +136,11 @@ public class Frame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
-                                .addComponent(jLabel4)))
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
@@ -218,7 +219,12 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MenuSelected
 
     private void jSliderHangerőStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderHangerőStateChanged
-        Sound.setdec((float) jSliderHangerő.getValue());
+        
+        if (jSliderHangerő.getValue() == 50){
+           Sound.setdec(-100.0f); 
+        } else {
+            Sound.setdec((float) jSliderHangerő.getValue()*-1); 
+        }
         System.out.println((float) jSliderHangerő.getValue());
     }//GEN-LAST:event_jSliderHangerőStateChanged
 
