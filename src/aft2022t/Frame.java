@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -245,6 +246,11 @@ public class Frame extends javax.swing.JFrame {
 
         //Thread.sleep(100);
         //
+    }
+    
+    public void scrollPanelLoad(){
+        DefaultTableModel demolist = new DefaultTableModel();
+        //jScrollPane2.set
     }
 
     private void jButtonDobásActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDobásActionPerformed
