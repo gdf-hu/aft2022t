@@ -26,7 +26,7 @@ public class Sound {
     }
 
     /**
-     *
+     *  setdec()=> megadjuk mennyi lesz az elvett decibel 
      * @param dec
      */
     public static void setdec(float dec){
@@ -34,7 +34,7 @@ public class Sound {
     }
 
     /**
-     *
+     *  rolldice()=>kiadja a roll hangjat
      */
     public static void rolldice(){
         try //playing the music
@@ -55,7 +55,7 @@ public class Sound {
     }
 
     /**
-     *
+     *bigger_sound()=>kiadja a nagyobb dobott hang hangjat hangjat
      */
     public static void bigger_sound(){
         try //playing the music
@@ -76,7 +76,7 @@ public class Sound {
     }
 
     /**
-     *
+     * same_sound()=>kiadja az ugyanakkor dobott hang hangjat hangjat
      */
     public static void same_sound(){
         try //playing the music
@@ -97,7 +97,7 @@ public class Sound {
     }
 
     /**
-     *
+     *small_sound()=>kiadja a kisebbet dobott hang hangjat hangjat
      */
     public static void small_sound(){
         try //playing the music
