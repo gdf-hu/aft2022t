@@ -6,6 +6,7 @@ package aft2022t;
 
 import java.awt.Label;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
@@ -50,6 +51,7 @@ public class Frame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabelDobottÖsszeg = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -114,6 +116,8 @@ public class Frame extends javax.swing.JFrame {
 
         jLabelDobottÖsszeg.setText("10");
 
+        jProgressBar1.setMaximum(20);
+
         jMenu1.setText("About");
         jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
@@ -143,11 +147,12 @@ public class Frame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(85, 85, 85)
                                 .addComponent(jLabel4))
-                            .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSliderHangerő, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -185,6 +190,8 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSliderHangerő, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +212,7 @@ public class Frame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(12, Short.MAX_VALUE))
+                                .addContainerGap(24, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addGap(20, 20, 20))))))
@@ -214,24 +221,48 @@ public class Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void progressLoad() throws InterruptedException {
+
+        Thread t;
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 20; i++) {
+                    try {
+                        jProgressBar1.setValue(i);
+                        Thread.sleep(50);
+                        jButtonDobás.setEnabled(false);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                jButtonDobás.setEnabled(true);
+            }
+        });
+
+        t.start();
+
+        //Thread.sleep(100);
+        //
+    }
+
     private void jButtonDobásActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDobásActionPerformed
         System.out.println("Dobás!");
-
-        Sound.rolldice();
-
+        jProgressBar1.setValue(0);
         Label text = new Label();
         text.setText("1");
-
         try {
-            ArrayList<Integer> lista = Dobokocka.dobas();
-            System.out.println(lista);
+            Sound.rolldice();
+            progressLoad();
 
-            int összes = 0;
-            for (int i = 0; i < lista.size(); i++) {
-                összes += lista.get(i);
+            DefaultListModel demoList = new DefaultListModel();
+
+            for (int i = 0; i < (int) jSpinnerDobás.getValue(); i++) {
+                demoList.add(i, Dobokocka.dob());
+                //Thread.sleep(100);
+
             }
+            jListDobások.setModel(demoList);
 
-            jLabelDobottÖsszeg.setText(összes + "");
         } catch (Exception e) {
         }
 
@@ -316,6 +347,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JList<String> jListDobások;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSliderHangerő;
