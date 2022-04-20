@@ -5,6 +5,8 @@
 package aft2022t;
 
 import java.awt.Label;
+import java.util.ArrayList;
+import javax.swing.JDialog;
 
 /**
  *
@@ -19,6 +21,9 @@ public class Frame extends javax.swing.JFrame {
         initComponents();
         Dobokocka.setKockaOldal(6);
         Dobokocka.setKockaDarab(1);
+
+        jSpinner1.setValue(Dobokocka.getKockaOldal());
+        jSpinner2.setValue(Dobokocka.getKockaDarab());
     }
 
     /**
@@ -38,6 +43,8 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dobókocka");
@@ -75,6 +82,25 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jLabel3.setText("Dobások:");
+
+        jMenu1.setText("About");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,7 +145,7 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,19 +155,34 @@ public class Frame extends javax.swing.JFrame {
         System.out.println("Dobás!");
         Label text = new Label();
         text.setText("1");
-        System.out.println(Dobokocka.dobas(2));
+        try {
+            ArrayList<Integer> lista = Dobokocka.dobas();
+            System.out.println(lista);
+        } catch (Exception e) {
+        }
+
         //jList1.add(new ListItem("Item "));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
         System.out.println("Oldal: " + jSpinner1.getValue().toString());
-        Dobokocka.setKockaOldal((int)jSpinner1.getValue());
+        Dobokocka.setKockaOldal((int) jSpinner1.getValue());
     }//GEN-LAST:event_jSpinner1StateChanged
 
     private void jSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner2StateChanged
         System.out.println("Dobás: " + jSpinner2.getValue().toString());
-        Dobokocka.setKockaDarab((int)jSpinner2.getValue());
+        Dobokocka.setKockaDarab((int) jSpinner2.getValue());
     }//GEN-LAST:event_jSpinner2StateChanged
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        System.out.println("Open about");
+       JDialog  dialog = new JDialog (this, "dd");
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
 
     /**
      * @param args the command line arguments
@@ -184,6 +225,8 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
