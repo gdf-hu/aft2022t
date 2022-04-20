@@ -124,7 +124,7 @@ public class Dobokocka {
 
         if (HanyadikDobas == KockaDarab) {
             String[] tömb = new String[2];
-            tömb[0] = String.join("", JelenlegiDobasok);
+            tömb[0] = String.join(",", JelenlegiDobasok);
 
             tömb[1] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             Dobasok.add(tömb);
