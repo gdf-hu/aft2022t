@@ -16,7 +16,7 @@ használható, tetszőleges környezettel, de vizsgán csak az fd11*ova, ezért 
 darab 6 oldalú kockával (röviden: 4d6) gurítunk, akkor négy darab 1 és 6 közé eső "véletlen" számot
 generál. Jó lenne a korábbi dobásokat (de legalább az előzőt) látni.
 XXX A) Csináljatok egyszerű GUI-t két JSpinner-rel és egy "Dobj!" gombbal!
- B) Adjatok hozzá egy "N darabot egymás után!" opciót!
+XXX B) Adjatok hozzá egy "N darabot egymás után!" opciót!
  C) Készítsetek telepítőt, ami a felhasználó által megadott könyvtárba másolja a jar fájlt!
  D) Készítsetek hozzá egy szép GUI! Jelenjenek meg képek, amikor a GUI-t piszkálom! (@see google
 image search "d8 d20")
