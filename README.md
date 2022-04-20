@@ -15,21 +15,21 @@ használható, tetszőleges környezettel, de vizsgán csak az fd11*ova, ezért 
  2. Implementáljatok kockadobó-programot! Dob valahány darab valahány oldalú "kockával"! Például ha 4
 darab 6 oldalú kockával (röviden: 4d6) gurítunk, akkor négy darab 1 és 6 közé eső "véletlen" számot
 generál. Jó lenne a korábbi dobásokat (de legalább az előzőt) látni.
- A) Csináljatok egyszerű GUI-t két JSpinner-rel és egy "Dobj!" gombbal!
+XXX A) Csináljatok egyszerű GUI-t két JSpinner-rel és egy "Dobj!" gombbal!
  B) Adjatok hozzá egy "N darabot egymás után!" opciót!
  C) Készítsetek telepítőt, ami a felhasználó által megadott könyvtárba másolja a jar fájlt!
  D) Készítsetek hozzá egy szép GUI! Jelenjenek meg képek, amikor a GUI-t piszkálom! (@see google
 image search "d8 d20")
- E) Legyen hangja is!
- F) Adjatok hozzá egy "about" gombot, amiben van programnév, verzió, készítők listája!
+XXX E) Legyen hangja is!
+XXX F) Adjatok hozzá egy "about" gombot, amiben van programnév, verzió, készítők listája!
  G) Adjatok hozzá egy JProgressBar-t, ami a dobás 1 másodperces "folyamatát" mutatja!
- H) A dobások tartsanak 10...30 decimásodpercig, véletlen-szerűen sorsolva! KÉSZ
+XXX H) A dobások tartsanak 10...30 decimásodpercig, véletlen-szerűen sorsolva! KÉSZ
  I) Mentsétek el a program állapotát kilépéskor! Induláskor töltsétek vissza!
- J) Adjatok Javadoc-ot a kódhoz! Generáljátok le a HTML-t!
+X J) Adjatok Javadoc-ot a kódhoz! Generáljátok le a HTML-t!
  K) Adjatok "build number"-t az "about"-hoz! Oldjátok meg, hogy újraépítéskor nőjön a szám!
  L) Csináljatok élő bemutatót (live demo) a Robot osztállyal, a /livedemo kapcsolóval indítva fusson!
  M) Adjatok hozzá egy JTabbedPane-t, rakjátok át az "about"-ot a második fülre!
- N) Adjatok hozzá egy JTable-t egy JScrollPane-ben, ami a korábbi dobásokat mutatja, időbélyeggel!
+X N) Adjatok hozzá egy JTable-t egy JScrollPane-ben, ami a korábbi dobásokat mutatja, időbélyeggel!
  O) Adjatok hozzá egy "feltöltés" gombot, ami MariaDB-be (MySQL) menti a dobásokat!
  P) Adjatok hozzá egy "letöltés" gombot, ami MariaDB-ből (MySQL) visszaállítja a dobásokat!
  Q) Adjatok hozzá egy "képernyőkép" gombot, ami csinál egy képernyőképet!
