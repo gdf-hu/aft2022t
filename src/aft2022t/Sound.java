@@ -17,12 +17,25 @@ public class Sound {
     private static FloatControl gainControl;
     private static float decibel=0.0f;
     
+    /**
+     *  getdec()=> megadja hogy mennyid ecibelt veszunk el
+     * @return
+     */
     public static float getdec(){
-        return decibel;
+        return decibel*-1;
     }
+
+    /**
+     *
+     * @param dec
+     */
     public static void setdec(float dec){
-        decibel = dec;
+        decibel = dec*-1;
     }
+
+    /**
+     *
+     */
     public static void rolldice(){
         try //playing the music
         {
@@ -40,6 +53,10 @@ public class Sound {
     }
         
     }
+
+    /**
+     *
+     */
     public static void bigger_sound(){
         try //playing the music
         {
@@ -57,6 +74,10 @@ public class Sound {
     }
         
     }
+
+    /**
+     *
+     */
     public static void same_sound(){
         try //playing the music
         {
@@ -74,6 +95,10 @@ public class Sound {
     }
         
     }
+
+    /**
+     *
+     */
     public static void small_sound(){
         try //playing the music
         {
