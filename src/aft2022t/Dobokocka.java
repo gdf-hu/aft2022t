@@ -15,7 +15,8 @@ public class Dobokocka {
 
     private static int KockaOldal = 6;
     private static int KockaDarab = 1;
-
+    private static ArrayList<Integer> Dobasok = new ArrayList<Integer>();
+    
     public static int getKockaOldal() {
         return KockaOldal;
     }
@@ -53,5 +54,15 @@ public class Dobokocka {
         }
 
         return lista;
+    }
+    
+    public static int dob() throws InterruptedException{
+        int min = 1;
+        int max = Dobokocka.KockaOldal;
+        Random rnd = new Random();
+        int dobottSzam = rnd.nextInt(max - min + 1)+min; 
+        Thread.sleep(rnd.nextLong(300-100)+100);
+        Dobokocka.Dobasok.add(dobottSzam);
+        return dobottSzam;
     }
 }
