@@ -14,16 +14,16 @@ import javax.sound.sampled.FloatControl;
  * @author Fábián Levente
  */
 public class Sound {
-    private FloatControl gainControl;
-    private float decibel=0.0f;
+    private static FloatControl gainControl;
+    private static float decibel=0.0f;
     
-    float getdec(){
+    public static float getdec(){
         return decibel;
     }
-    void setdec(float dec){
+    public static void setdec(float dec){
         decibel = dec;
     }
-    void rolldice(){
+    public static void rolldice(){
         try //playing the music
         {
     String soundName = ".\\src\\aft2022t\\sound\\rolldice.wav";    
@@ -40,7 +40,7 @@ public class Sound {
     }
         
     }
-    void bigger_sound(){
+    public static void bigger_sound(){
         try //playing the music
         {
     String soundName = ".\\src\\aft2022t\\sound\\win_sound.wav";    
@@ -57,7 +57,7 @@ public class Sound {
     }
         
     }
-    void same_sound(){
+    public static void same_sound(){
         try //playing the music
         {
     String soundName = ".\\src\\aft2022t\\sound\\same_sound.wav";    
@@ -74,7 +74,7 @@ public class Sound {
     }
         
     }
-    void small_sound(){
+    public static void small_sound(){
         try //playing the music
         {
     String soundName = ".\\src\\aft2022t\\sound\\lose_sound.wav";    
