@@ -48,8 +48,8 @@ public class Dobokocka {
         int max = Dobokocka.KockaOldal;
         Random rnd = new Random();
         for (int i = 0; i < Dobokocka.KockaDarab; i++) {
-            //Thread.sleep(rnd.nextLong(300));
-            lista.add(rnd.nextInt(max - min + 1));
+            Thread.sleep(rnd.nextLong(300-100)+100);
+            lista.add(rnd.nextInt(max - min + 1)+min);
         }
 
         return lista;
